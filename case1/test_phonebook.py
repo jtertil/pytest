@@ -1,11 +1,12 @@
 import pytest
 
-from case1.phonebook import Phonebook
+from phonebook import Phonebook
 
 
 @pytest.fixture
-def phonebook():
-    return Phonebook()
+def phonebook(tmpdir):
+    """test"""
+    return Phonebook(tmpdir)
 
 
 def test_lookup_by_name(phonebook):

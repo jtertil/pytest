@@ -1,6 +1,14 @@
+import os
+
 class Phonebook:
-    def __init__(self):
+    def __init__(self, cache_directory):
         self.entries = {}
+        self.filename = os.path.join(cache_directory, "phonebook.txt")
+        self.cache = open(self.filename, "w")
+
+    def clear(self):
+        self.cache.close()
+        os.remove(self.filename)
 
     def add(self, name, number):
         self.entries[name] = number
